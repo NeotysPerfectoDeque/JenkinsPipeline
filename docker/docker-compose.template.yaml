@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  konakart:
+    image: konakart/konakart_9000_ce:latest
+    ports:
+    - "8780:8780"
+    - "8783:8783"
+    environment:
+      DB_TYPE: "postgreSQL"
+      DB_DRIVER: "org.postgresql.Driver"
+      DB_HOST: "127.0.0.1"
+      DB_PORT: "5432"
+      DB_NAME: "konakart"
+      DB_LOAD: "0"
+      DB_OPTIONS: "zeroDateTimeBehavior=convertToNull&useSSL=false"
+      DT_TAGS: "app=konakart"
+networks:
+  default:
+    external:
+      name: TO_REPLACE
